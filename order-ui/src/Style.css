@@ -54,13 +54,15 @@
   width: 250px;
   margin-right: 20px;
   border: 1px solid rgb(190, 190, 255);
-  border-radius: 1px;
+  border-radius: 2px;
+  box-shadow: 1px 3px 3px 2px rgb(192, 192, 192);
 }
 
 .card-bottom {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
+  width: 600px;
 }
 
 .card-content {
@@ -72,20 +74,16 @@
 }
 
 .juices-img {
-  margin: 10px 100px 10px 0px;
+  margin: 0px 100px 0px 0px;
 }
 
 .juices-img img {
-  height: 58px;
-  width: 50px;
+  height: 65px;
+  width: 55px;
   margin-right: 15px;
   border-radius: 3px;
   cursor: pointer;
-  border: 1.25px solid blue;
-}
-
-.price-select {
-  margin-left: 190px;
+  box-shadow: 1px 3px 3px 2px rgb(194, 194, 194);
 }
 
 .price-select h3 {
@@ -94,13 +92,14 @@
 }
 
 .price-select button {
-  background: #fff;
+  background: #f0f0f0;
   padding: 10px;
   width: 100px;
   border-radius: 5px;
   cursor: pointer;
-  color: rgb(34, 105, 176);
-  border: 1.5px solid rgb(34, 105, 176);
+  color: black;
+  border: 1.5px solid rgb(154, 154, 154);
+  box-shadow: 1px 2px 2px 1px rgb(52, 52, 52);
 }
 
 .combo-list hr {
@@ -176,15 +175,27 @@
 }
 
 .options {
-  border: 1.5px solid rgba(138, 73, 178, 0.772);
+  border: 1px solid rgba(138, 73, 178, 0.772);
   border-radius: 1.5px;
   background-color: #fff;
-  padding: 10px;
   margin-right: 30px;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-in-out;
 }
 
-.options:hover{
-  background-color: rgba(251, 244, 255, 0.772);
+.options.active {
+  max-height: 150px; 
+}
+
+.option {
+  width: 100%;
+  border: 0.5px solid rgba(138, 73, 178, 0.772);
+  padding: 10px; 
+}
+
+.option:hover{
+  background-color: rgba(246, 230, 255, 0.772);
 }
 
 /* <<<< ====================== Paging ==================== >>>>>>>>>>>>  */

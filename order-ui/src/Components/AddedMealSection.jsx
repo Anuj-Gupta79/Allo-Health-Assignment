@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Plane, ChevronUp, ChevronDown } from "lucide-react";
 import "../Style.css";
 
-const AddedMealSection = () => {
+const AddedMealSection = ({totalPrice, selectedCard}) => {
   const [toggle, setToggle] = useState(false);
 
   const handleClick = () => {
@@ -31,23 +31,32 @@ const AddedMealSection = () => {
         </div>
       </div>
       {toggle ? (
-        <>
+        <div className={`options ${toggle ? "active" : ""}`}>
           {arr.map((item, index) => {
             return (
-              <option value="index" key={index} className="options">
+              <option value="index" key={index} className="option">
                 <div className="item-name">{item.name}</div>
-        
                 <div className="item-selection">{item.selection}</div>
               </option>
             );
           })}
-        </>
+          {/* {
+            selectedCard.map((card, index) => {
+              return (
+                <div key={index} className="selected-card">
+                  <div className="item-name">{card.item.title}</div>
+                  <div className="item-selection">Selected</div>
+                </div>
+              );
+            })
+          } */}
+        </div>
       ) : (
         ""
       )}
       <div className="total-price">
         <p>Total for all passengers</p>
-        <h3>39"&#x20AC;</h3>
+        <h3>{totalPrice.toFixed(2)}"&#x20AC;</h3>
       </div>
     </div>
   );

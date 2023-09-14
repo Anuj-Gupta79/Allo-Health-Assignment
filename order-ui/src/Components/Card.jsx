@@ -1,22 +1,20 @@
 import React, { useState } from "react";
 import "../Style.css";
 
-const Card = ({ item }) => {
+const Card = ({ item , cardSelectedHandler}) => {
   const [selectedJuice, setSelectedJuice] = useState("");
-  const [selected, setSelected] = useState(false);
-  const [currJuice, setCurrJuice] = useState(0);
+  const [selectedJuicePrice, setSelectedJuicePrice] = useState(0);
 
-  const juiceClick = (title, index) => {
-    setSelected(!selected);
-    if (selected && index === currJuice) {
-      setSelectedJuice("");
-    } else setSelectedJuice(title);
-    setCurrJuice(index);
+  const juiceClickHandler = (drink, price) => {
+    setSelectedJuice((prevJuice) => (prevJuice === drink ? "" : drink));
+    setSelectedJuicePrice((prevJuicePrice) =>
+      prevJuicePrice === price ? 0 : price
+    );
   };
 
   return (
     <>
-      <div className="card">
+      <div className="card" onClick={()=>cardSelectedHandler(item)}>
         <div className="card-img">
           <img src={item.img} alt="error" />
         </div>
@@ -40,13 +38,16 @@ const Card = ({ item }) => {
                     src={drink.img}
                     alt="error"
                     key={index}
-                    onClick={() => juiceClick(drink.title, index)}
+
+                    onClick={() => {
+                      juiceClickHandler(drink.title, drink.price);
+                    }}
                   />
                 );
               })}
             </div>
             <div className="price-select">
-              <h3>{item.price}"&#x20AC;</h3>
+              <h3>{(item.price + selectedJuicePrice).toFixed(2)}"&#x20AC;</h3>
               <button>Select</button>
             </div>
           </div>

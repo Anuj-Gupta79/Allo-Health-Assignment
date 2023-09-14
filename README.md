@@ -33,5 +33,3 @@ of available meals to purchase with drink selection for each meal. Please check 
 https://allo-health-food-drink-order-ui.netlify.app/
 ```
 
-### Note:
-"Hello Sir, I have made this assignment by myself from scratch. But I am left with some bugs and I am trying to resolve it. The above link has that bugs. Once, I remove all the bugs, I will update it asap. Sir, Please consider my work. Thank you."
